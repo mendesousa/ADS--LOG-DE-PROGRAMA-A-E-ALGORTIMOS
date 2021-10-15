@@ -1,0 +1,39 @@
+import random
+
+def valida_int(pergunta, min, max):
+    x = int(input(pergunta))
+    while ((x < min) or (x > max)):
+        x = int(input(pergunta))
+    return x
+
+sorteio = []
+
+while True:
+    cadastro = valida_int('DESEJA CADASTRAR DOADOR ? 0 - SAIR    1 - CONTINUAR ', 0, 1)
+    if cadastro == 1:
+        doador = input('Digite o nome do doador: ')
+        doação = float(input('Digite o valor doado: '))
+
+        if doação < 10:
+            print(' Valor minimo para doação é de R$ 10,00.\n tente novamente')
+            continue
+
+        elif len(doador.strip()) == 0:
+            print(' O nome do doador é obrigatório.\n tente novamente')
+            continue
+
+        else:
+            sorteio.extend(int(doação//10) * (doador).split(' '))
+
+
+    elif len(sorteio)> 0:
+            print (f'Lista dos doadores:{sorteio}'.upper())
+            random.shuffle(sorteio)
+            print(f'LISTA EMBARALHADA: {sorteio}'.upper())
+            sorteado = random.choice(sorteio).upper()
+
+            print(f'O Vencedor do sorteio foi : {sorteado}')
+            break
+
+    elif cadastro == 0:
+            exit()
