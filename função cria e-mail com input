@@ -1,0 +1,7 @@
+def cria_mail():
+    nome = input('Digite seu nome: ')
+    sobrenome = input('Digite seu sobrenome: ')
+    ru = input('Digite seu RU: ')
+    e_mail = nome[0].lower() + sobrenome.lower()+ru[-2:]
+    print('Sr.{} {}, seu e-mail é {}@algoritmos.com.br'.format(nome.upper(), sobrenome.upper(), e_mail))
+    return
