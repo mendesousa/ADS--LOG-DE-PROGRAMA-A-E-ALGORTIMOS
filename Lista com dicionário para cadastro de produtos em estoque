@@ -1,0 +1,47 @@
+def valida_int(pergunta, min, max):
+    x = int(input(pergunta))
+    while ((x < min) or (x > max)):
+        x = int(input(pergunta))
+    return x
+
+produto = {}
+
+lista = []
+
+while True:
+    cadastro = valida_int('DESEJA CADASTRAR PRODUTOS ? 0 - SAIR    1 - CONTINUAR ', 0, 1)
+    if cadastro == 1:
+        produto['codigo'] = int(input('Digite o código do produto: '))
+        if produto['codigo'] == 0:
+            print('Você optou por encerrar o programa. \nEncerrando cadastro de produtos')
+            break
+        produto['estoque'] = int(input('Digite a quantidade em estoque: '))
+        produto['minimo'] = int(input('Digite a quantidade minima para estoque: '))
+
+        lista.append(produto.copy())
+        lista = sorted(lista, key  =lambda item: item['codigo'])
+
+
+
+    elif len(lista) > 0:
+        print(lista)
+        print('Lista de produtos por código ordem crescente:')
+        print('CÓDIGO'.center(14), end=' ')
+        print('ESTOQUE'.center(14), end=' ')
+        print('MINIMO'.center(14))
+
+        for produto in lista:
+            print(str(produto['codigo']).center(14), end=' ')
+            print(str(produto['estoque']).center(14), end=' ')
+            print(str(produto['minimo']).center(14))
+        break
+
+    elif len(lista) == 0:
+        print('Sua lista está vazia.\nVocê optou por encerrar o programa.')
+        break
+
+
+
+
+
+
