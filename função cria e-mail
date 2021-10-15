@@ -1,0 +1,7 @@
+def cria_email(nome, sobrenome):
+    tam = len(nome.strip()) and len(sobrenome.strip())
+
+    if tam <= 0:
+        return None
+    else:
+        return 'Sr. {} {}, seu email é {}31@algoritmos.com.br' .format(nome.upper(), sobrenome.upper(), nome[0].lower()+sobrenome.lower())
