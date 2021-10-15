@@ -1,0 +1,31 @@
+
+while True:
+    escolha = input('DESEJA INSERIR DADOS? 0 - SAIR    1 - CONTINUAR ')
+    if escolha == '1':
+        aluno = input(' Digite nome do aluno: ')
+        nota = float(input(' Digite nota do aluno: '))
+
+        if (0 <= nota < 3):
+            conceito = 'E'
+        elif (3 <= nota < 5):
+            conceito = 'D'
+        elif (5 <= nota < 7):
+            conceito = 'C'
+        elif (7 <= nota < 9):
+            conceito = 'B'
+        elif (9 <= nota <= 10):
+            conceito = 'A'
+
+        else:
+            print('Erro! A nota digitada é inválida.')
+            print ('Entre com os dados novamente...')
+            continue
+        print('O aluno {} tirou nota {} e se enquadra no conceito {}'.format(aluno.upper(), nota, conceito))
+
+    elif escolha == '0':
+        print('Encerrando programa...')
+        break
+
+    if (escolha != '1'):
+        print('tecla inválida. digite novamente')
+        continue
